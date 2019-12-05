@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: consume-server
+
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+      discovery:
+        server-addr: ${spring.cloud.nacos.config.server-addr}
+
+#    分布式事物
+    alibaba:
+      seata:
+        tx-service-group: ${spring.application.name}
+
+#限流
+#    sentinel:
+#      datasource:
+#        ds1:
+#          nacos:
+#            server-addr: 127.0.0.1:8848
+#            data-id: ${spring.application.name}-flow-rules
+#            data-type: json
+#            rule-type: flow
