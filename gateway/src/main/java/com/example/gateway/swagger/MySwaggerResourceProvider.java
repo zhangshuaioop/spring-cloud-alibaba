@@ -57,8 +57,7 @@ public class MySwaggerResourceProvider implements SwaggerResourcesProvider {
             // 拼接url，样式为/serviceId/v2/api-info，当网关调用这个接口时，会自动通过负载均衡寻找对应的主机
             String url = "/" + instance + SWAGGER2URL;
             if (!dealed.contains(url)
-                    && !instance.equals("serverAddr")     //过滤掉分布式事务serverAddr服务
-                    && !instance.equals("admin-server"))     //过滤掉服务监控系统admin-server服务
+                    && !instance.equals("serverAddr"))  //过滤掉分布式事务serverAddr服务
             {
                 dealed.add(url);
                 SwaggerResource swaggerResource = new SwaggerResource();
